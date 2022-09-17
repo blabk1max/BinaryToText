@@ -10,17 +10,17 @@ Ex)
   BinaryToText -i Dump.dat -o Output.ttxt -p Format.json
 
 - Binary data path  
-Binary file path to dump
+Binary file path to dump  
 ダンプするバイナリーファイルパス
 - Text dump path  
-File path for dump output
+File path for dump output  
 バイナリーファイルをテキスト形式にして出力するファイルパス
 - Dump format path(option)  
-Dump output format(json file)
-バイナリーファイルをダンプする時に使用する書式
+Dump output format(json file)  
+バイナリーファイルをダンプする時に使用する書式  
 This is unnecessary if the dump format file named binary file name.json exists in the same folder as the binary file
-Ex) InBinary.dat(Binary) <-> InBinary.json(Format)
-バイナリファイル名.jsonというダンプフォーマットファイルがバイナリファイルと同じフォルダーに存在すればこれは不要
+Ex) InBinary.dat(Binary) <-> InBinary.json(Format)  
+バイナリファイル名.jsonというダンプフォーマットファイルがバイナリファイルと同じフォルダーに存在すればこれは不要  
 例) InBinary.dat(Binary) <-> InBinary.json(Format)
 ------
 Format.json
