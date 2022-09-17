@@ -1,0 +1,9 @@
+﻿Byte : 32
+Byte(HEX) : 20
+Short : 456
+Long : 689,789
+Float : 32.26
+Double : 958.2543200
+String : abcdefg
+UTF-8 String : あいうえお
+UTF-16 String : かきくけこ

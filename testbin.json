@@ -1,0 +1,15 @@
+{
+  "title_separater" : " : ",
+  "items" : [
+    {"title" : "Byte", "type" : "byte", "size" : 1},
+    {"title" : "Byte(HEX)", "type" : "byte", "size" : 1, "format" : "X"},
+    {"title" : "Short", "type" : "short", "size" : 1},
+    {"title" : "Long", "type" : "long", "size" : 2},
+    {"title" : "Float", "type" : "float", "size" : 1},
+    {"title" : "Double", "type" : "double", "size" : 1, "format" : "F7"},
+    {"title" : "String", "type" : "ansistring", "size" : 7},
+    {"title" : "UTF-8 String", "type" : "utf8string", "size" : 15},
+    {"title" : "", "type" : "skip", "size" : 2, "comment" : "BOMが入っている"},
+    {"title" : "UTF-16 String", "type" : "utf16string", "size" : 10}
+  ]
+}
