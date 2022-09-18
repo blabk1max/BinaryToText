@@ -37,7 +37,7 @@ namespace BinaryToText {
       for (int n = 0; n < args.Length; n++) {
         if (preFix.ToLower() == args[n].ToLower()) {
           if ((n + 1) < args.Length) {
-            return (args[n + 1]).Trim('"', ' ', '\'');
+            return (args[n + 1]).Trim('"', '\'');
           }
         }
       }
