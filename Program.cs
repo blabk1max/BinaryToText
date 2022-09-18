@@ -37,7 +37,7 @@ namespace BinaryToText {
       for (int n = 0; n < args.Length; n++) {
         if (preFix.ToLower() == args[n].ToLower()) {
           if ((n + 1) < args.Length) {
-            return args[n + 1];
+            return (args[n + 1]).Trim('"', ' ', '\'');
           }
         }
       }
@@ -57,8 +57,13 @@ namespace BinaryToText {
       }
 
       if (File.Exists(outPath)) {
-        Console.WriteLine($"Text dump path({outPath}) already exists.");
-        return;
+        string pathBase = Path.GetDirectoryName(outPath);
+        string pathFileName2 = $"{DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss")}_{Path.GetFileName(outPath)}";
+        string bakPath = Path.Combine(pathBase, pathFileName2);
+
+        File.Copy(outPath, bakPath);
+        Console.WriteLine($"Text dump path({outPath}) already exists. made a backup({bakPath})");
+        File.Delete(outPath);
       }
 
       var path = Path.ChangeExtension(inPath, ".json");
