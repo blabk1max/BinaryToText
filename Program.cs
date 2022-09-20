@@ -6,21 +6,21 @@ using System.Text.Json.Serialization;
 namespace BinaryToText {
 
   internal class Item {
-    [JsonPropertyName("title")] public string Title { get; set; }
+    [JsonPropertyName("title")] public string Title { get; set; } = "";
 
-    [JsonPropertyName("type")] public string VType { get; set; }
+    [JsonPropertyName("type")] public string VType { get; set; } = "";
 
-    [JsonPropertyName("size")] public int Size { get; set; }
+    [JsonPropertyName("size")] public int Size { get; set; } = 0;
 
-    [JsonPropertyName("format")] public string Format { get; set; }
+    [JsonPropertyName("format")] public string Format { get; set; } = "";
 
-    [JsonPropertyName("encode")] public string Encode { get; set; }
+    [JsonPropertyName("encode")] public string Encode { get; set; } = "";
   }
 
   internal class Dump {
-    [JsonPropertyName("title_separater")] public string TitleSeprater { get; set; }
+    [JsonPropertyName("title_separater")] public string TitleSeprater { get; set; } = " : ";
 
-    [JsonPropertyName("items")] public List<Item> Items { get; set; }
+    [JsonPropertyName("items")] public List<Item>? Items { get; set; }
   }
 
   internal class Program {
@@ -57,7 +57,7 @@ namespace BinaryToText {
       }
 
       if (File.Exists(outPath)) {
-        string pathBase = Path.GetDirectoryName(outPath);
+        string pathBase = Path.GetDirectoryName(outPath) ?? "";
         string pathFileName2 = $"{DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss")}_{Path.GetFileName(outPath)}";
         string bakPath = Path.Combine(pathBase, pathFileName2);
 
@@ -83,7 +83,7 @@ namespace BinaryToText {
       var formatJson = File.ReadAllText(formatPath, System.Text.Encoding.UTF8);
       var formatParams = JsonSerializer.Deserialize<Dump>(formatJson);
 
-      if (formatParams == null) {
+      if ((formatParams == null) || (formatParams.Items == null)) {
         Console.WriteLine($"Invalid dump format in ({formatPath}).");
         return;
       }
